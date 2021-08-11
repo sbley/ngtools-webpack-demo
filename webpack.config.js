@@ -15,15 +15,15 @@ export default {
         test: /\.tsx?$/,
         loader: '@ngtools/webpack',
       },
-	  {
+      {
         test: /\.(sa|sc|c)ss$/,
         use: [
           //devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-		  'to-string-loader',
+          'to-string-loader',
           {
-		    loader: 'css-loader', 
-			options: { esModule: false }
-		  },
+            loader: 'css-loader',
+            options: { esModule: false },
+          },
           //'postcss-loader',
           'sass-loader',
         ],
@@ -35,7 +35,7 @@ export default {
         ],
         type: 'asset/resource'
       }*/
-    ]
+    ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -47,16 +47,14 @@ export default {
   plugins: [
     // create index.html and wire bundle.js
     new HtmlWebpackPlugin({
-		title: 'ngtools-webpack-demo'
-	}),
-	// copy static assets to dist folder
+      title: 'ngtools-webpack-demo',
+    }),
+    // copy static assets to dist folder
     new CopyWebpackPlugin({
-      patterns: [ 
-	    { from: 'src/assets', to: 'assets'}
-	  ]
-    }), 
-	// compile Angular code
-	new AngularWebpackPlugin({
+      patterns: [{ from: 'src/assets', to: 'assets' }],
+    }),
+    // compile Angular code
+    new AngularWebpackPlugin({
       tsconfig: './tsconfig.json',
     }),
   ],

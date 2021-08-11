@@ -1,12 +1,12 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-greeting',
-  templateUrl: "./greeting.component.html",
-  styleUrls: ["./greeting.component.scss"],
+  templateUrl: './greeting.component.html',
+  styleUrls: ['./greeting.component.scss'],
 })
 export class GreetingComponent {
-  greeting = "Hello";
-  
+  greeting = 'Hello';
+
   @Input() who = '';
 }
