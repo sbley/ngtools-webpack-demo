@@ -8,8 +8,6 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 
-const a = 'Hello World';
-
 function heading(text: string) {
   const h1 = document.createElement('h1');
   const textNode = document.createTextNode(text);
@@ -17,9 +15,9 @@ function heading(text: string) {
   return h1;
 }
 
-function portalHost() {
+function portalHost(className: string) {
   const element = document.createElement('div');
-  element.className = 'portal-host';
+  element.className = className;
 
   return element;
 }
@@ -31,8 +29,11 @@ function angularRoot() {
 document.body.appendChild(heading('Angular root component'));
 document.body.appendChild(angularRoot());
 
-document.body.appendChild(heading('Portal'));
-document.body.appendChild(portalHost());
+document.body.appendChild(heading('Component portal'));
+document.body.appendChild(portalHost('component-portal-host'));
+
+document.body.appendChild(heading('Embedded template portal'));
+document.body.appendChild(portalHost('template-portal-host'));
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
